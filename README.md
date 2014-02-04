@@ -40,3 +40,10 @@ class SomeClass {
   }
 }
 ```
+
+####Optimistic Construction
+When requested to inject an object that does not exist within the container pockmark will attempt to build that to analyse it's dependencies and build it if all dependencies are within the container. This is configurable to a certain depth.
+
+```
+new Injector($c, 2); // depth of 2
+```
