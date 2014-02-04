@@ -1,4 +1,4 @@
-php ioc container
+Pockmark
 =================
 
 A simple IoC layer on top of pimple.
