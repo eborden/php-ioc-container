@@ -26,16 +26,12 @@ class Injector {
 			$class = $paramRef->getClass();
 			$hint = isset($class) ? $class->getName() : null;
 
-			if ($class and $hint == 'Container') {
-				$param = $container;
-			} else {
-				if (isset($class)) {
-					$param = $container[$hint];
-				}
+			if (isset($class)) {
+				$param = $container[$hint];
+			}
 
-				if (!isset($param)) {
-					$param = $container[$paramRef->getName()];
-				}
+			if (!isset($param)) {
+				$param = $container[$paramRef->getName()];
 			}
 
 			if ($param !== null) {

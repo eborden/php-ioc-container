@@ -14,6 +14,7 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 		$this->C = new Container();
 		$this->C->register(new MockObject());
 		$this->C['randomInt'] = 20;
+		$this->C->register($this->C); // Meta
 		$this->I = new Injector($this->C);
 	}
 
