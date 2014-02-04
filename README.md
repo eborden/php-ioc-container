@@ -17,7 +17,7 @@ $c['injectedInt'] = 20;
 #### Constructor Injections
 ```php
 $i = new Injector($c);
-$o = $i->construct('Foo\Bar\Baz');
+$o = $i->construct('SomeClass');
 ```
 
 #### Method Injections
@@ -27,7 +27,14 @@ $i->method($o, 'biz');
 
 #### Inject on class or var name
 ```php
-class Baz {
+class SomeClass {
+
+  public $Baz;
+
+  public function __construct (Foo\Bar\Baz $o) {
+    $this->Baz = $o;
+  }
+  
   public function biz ($injectedInt) {
      echo $injectedInt . ' was injected'; // 20 was injected
   }
