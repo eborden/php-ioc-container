@@ -14,13 +14,13 @@ $c->register(new Foo\Bar\Baz);
 $c['injectedInt'] = 20;
 ```
 
-#### Constructor Injections
+#### Constructor Injection
 ```php
 $i = new Injector($c);
 $o = $i->construct('SomeClass');
 ```
 
-#### Method Injections
+#### Method Injection
 ```php
 $i->method($o, 'biz');
 ```
