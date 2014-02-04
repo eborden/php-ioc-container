@@ -18,7 +18,7 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testConstruct () {
-		$o = $this->I->constructor('Test\MockInjectionObject');
+		$o = $this->I->construct('Test\MockInjectionObject');
 
 		$this->assertTrue($o->O instanceof MockObject);
 		$this->assertTrue($o->C instanceof Container);

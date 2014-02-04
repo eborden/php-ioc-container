@@ -8,7 +8,7 @@ class Injector {
 		$this->C = $c;
 	}
 
-	public function constructor ($class) {
+	public function construct ($class) {
 		$reflection = new ReflectionClass($class);
 		return $reflection->newInstanceArgs($this->getParams($reflection->getConstructor()->getParameters()));
 	}
