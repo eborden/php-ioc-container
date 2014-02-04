@@ -8,6 +8,7 @@ class MockInjectionObject {
 
 	public $O;
 	public $O2;
+	public $O3;
 	public $Int;
 	public $C;
 
@@ -19,6 +20,10 @@ class MockInjectionObject {
 	public function doStuff (MockObject $o, $randomInt) {
 		$this->O2 = $o;
 		$this->Int = $randomInt;
+	}
+
+	public function doUnknownDep (MockUnknownObject $o) {
+		$this->O3 = $o;
 	}
 
 	public function doOtherStuff (MockObject $o, $foo) {

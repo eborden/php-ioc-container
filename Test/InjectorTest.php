@@ -15,7 +15,7 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 		$this->C->register(new MockObject());
 		$this->C['randomInt'] = 20;
 		$this->C->register($this->C); // Meta
-		$this->I = new Injector($this->C);
+		$this->I = new Injector($this->C, 1);
 	}
 
 	public function testConstruct () {
@@ -23,6 +23,15 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertTrue($o->O instanceof MockObject);
 		$this->assertTrue($o->C instanceof Container);
+
+		return $o;
+	}
+
+	public function testConstructDepth () {
+		$o = $this->I->construct('Test\MockUnknownObject');
+
+		$this->assertTrue($o instanceof MockUnknownObject);
+		$this->assertTrue($o->O instanceof MockObject);
 
 		return $o;
 	}
@@ -36,6 +45,15 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue($o->O2 instanceof MockObject);
 		$this->assertEquals($o->Int, 20);
 		
+	}
+
+	/**
+	 * @depends testConstruct
+	 */
+	public function testMethodDepth (MockInjectionObject $o) {
+		$this->I->method($o, 'doUnknownDep');
+
+		$this->assertTrue($o->O3 instanceof MockUnknownObject);
 	}
 	
 	/**
