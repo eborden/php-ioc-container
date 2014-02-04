@@ -1,0 +1,15 @@
+{
+    "name": "eborden/ioc",
+    "description": "A simple ioc container on top of pimple",
+    "require": {
+        "pimple/pimple": "*"
+    },
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Evan Rutledge Borden",
+            "email": "eborden@unionstmedia.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
