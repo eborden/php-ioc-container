@@ -60,6 +60,9 @@ class InjectorTest extends \PHPUnit_Framework_TestCase {
 	 * @depends testConstruct
 	 */
 	public function testFailure (MockInjectionObject $o) {
+		$this->setExpectedException('InvalidArgumentException', 'Failed to inject argument 0');
+		$this->I->construct($o, 'Test\MockDoubleUnknown');
+
 		$this->setExpectedException('InvalidArgumentException', 'Failed to inject argument 1');
 		$this->I->method($o, 'doOtherStuff');
 
